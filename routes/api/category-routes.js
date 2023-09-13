@@ -38,7 +38,7 @@ router.get('/:id', async (req, res) => {
  * Create a new category
  * @body JSON
  * {
- *  category_name - name of category
+ *  "category_name": "..."
  * }
  */
 router.post('/', async (req, res) => {
@@ -55,7 +55,15 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   // update a category by its `id` value
   try {
-
+    const category = await Category.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    });
+    const updatedCategory = await Category.findByPk(req.params.id, {
+      include: [{ model: Product }]
+    });
+    res.status(200).json(updatedCategory);
   }
   catch(error) {
     res.status(500).json(error);
@@ -65,7 +73,9 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   // delete a category by its `id` value
   try {
+    await Category.destroy({ where: { id: req.params.id }});
 
+    res.status(200).json({ Message: "Deleted category" });
   }
   catch(error) {
     res.status(500).json(error);

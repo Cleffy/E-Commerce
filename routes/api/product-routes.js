@@ -73,7 +73,7 @@ router.post('/', (req, res) => {
 });
 
 // update product
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   // update product data
   Product.update(req.body, {
     where: {
@@ -117,7 +117,16 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
   try {
+    await Product.destroy({ where: { id: req.params.id }});
 
+    const productTags = await ProductTag.findAll({
+      where: {
+        product_id: req.params.id
+      }
+    });
+    await Product.destroy({ where: { id: productTags }});
+
+    res.status(200).json({ Message: "Deleted product" });
   }
   catch(error) {
     res.status(500).json(error);
