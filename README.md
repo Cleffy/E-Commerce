@@ -24,3 +24,4 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
   [GitHub - Cleffy](https://github.com/Cleffy/)  
   ## <div id="References">References</div>
   Sequelize. *Documentation* <https://sequelize.org/docs/v6/><br>
+  University of Berkely Bootcamp by EdX. *Provided initial code.*
