@@ -8,8 +8,14 @@
   [Contact](#Contact)  
   [References](#References)  
   ## <div id="Installation">Installation</div>
-  After pulling the repository. Open MySQL and run 'source db\schema.sql' to initialize the MySQL tables. Exit MySQL. Enter 'npm run seed' to add initial data to the databse. Then enter 'npm start' to startup the server.  
+  After pulling the repository.  
+  Open MySQL and run 'source db\schema.sql' to initialize the MySQL tables.  
+  Exit MySQL.  
+  Enter 'npm run seed' to add initial data to the databse.  
+  Then enter 'npm start' to startup the server.  
+  
   ## <div id="Usage">Usage</div>
+  [![E-Commerce How-to Video](https://img.youtube.com/vi/lb-nocxOELY/maxresdefault.jpg)](https://youtu.be/lb-nocxOELY)
   You can run queries to web addresses through a tool like 'Insomnia' to view, create, update, or delete data on the server.  
   ## <div id="License">License</div>
   
